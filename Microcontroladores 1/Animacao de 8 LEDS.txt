@@ -1,0 +1,162 @@
+//------------------------------------------//
+//				ANIMA 8 LEDS			    //
+//------------------------------------------//
+
+#define F_CPU 16000000UL
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+#define setBit(Y, bit) (Y |= (1<<bit))
+#define clearBit(Y, bit) (Y &=~ (1<<bit))
+#define toogleBit(Y, bit) (Y ^= (1<<bit))
+#define testBit(Y, bit) (Y & (1<<bit))
+
+int main(void)
+{
+	DDRB = 0b00000001; //Habilita PB0 como sa?da
+	PORTB = 0b11111110; //Habilito os resistores do Pullup
+	DDRD = 0xFF;//todos os pinos do PORTD s?o sa?das digitais
+	UCSR0B = 0x00; //tornar o PD0 e PD1 I/O gen?rico
+	
+	int selecao;
+	
+	selecao =8;
+	
+	while (1)
+	{
+		switch(selecao)
+		{
+			case 1: letraA(); break;
+			case 2: letraB(); break;
+			case 3: letraC(); break;
+			case 4: letraD(); break;
+			case 5: letraE(); break;
+			case 6: letraF(); break;
+			case 7: letraG(); break;
+			case 8: anima(); break;
+		}
+	}
+}
+
+int letraA(void)
+{
+	int i=0;
+	while(i<8)
+	{
+		setBit(PORTD,i);
+		_delay_ms(250);
+		i++;
+	} 
+	i=0;
+	PORTD=0;
+	_delay_ms(250);
+	return 0;
+}
+
+int letraB(void)
+{
+	int i=7;
+	while(i>=0)
+	{
+		setBit(PORTD,i);
+		_delay_ms(250);
+		i--;
+	}
+	i=0;
+	PORTD=0;
+	_delay_ms(250);
+	return 0;
+}
+
+int letraC(void)
+{
+	int i=0;
+	while(i<8)
+	{
+		PORTD = 0;
+		setBit(PORTD,i);
+		_delay_ms(250);
+		i++;
+	}
+	i=0;
+	PORTD=0;
+	_delay_ms(250);
+	return 0;
+}
+
+int letraD(void)
+{
+	int i=0;
+	while(i<8)
+	{
+		PORTD = 0;
+		setBit(PORTD,i);
+		_delay_ms(250);
+		i++;
+	}
+	while(i>=0)
+	{
+		PORTD = 0;
+		setBit(PORTD,i);
+		_delay_ms(250);
+		i--;
+	}
+	i=0;
+	PORTD=0;
+	_delay_ms(250);
+	return 0;
+}
+
+int letraE(void)
+{
+	int i=0;
+	while(i<8)
+	{
+		PORTD = 0xFF;
+		clearBit(PORTD,i);
+		_delay_ms(250);
+		i++;
+	}
+	i=7;
+	while(i>=0)
+	{
+		PORTD = 0xFF;
+		clearBit(PORTD,i);
+		_delay_ms(250);
+		i--;
+	}
+	i=0;
+	_delay_ms(250);
+	return 0;
+}
+
+int letraF(void)
+{
+	for (int i=0; i<256; i++)
+	{
+		PORTD = i;
+		_delay_ms(250);
+	}
+	return 0;
+}
+
+int letraG(void)
+{
+	for (int i=256; i>=0; i--)
+	{
+		PORTD = i;
+		_delay_ms(250);
+	}
+	return 0;
+}
+
+int anima(void)
+{
+	for (int i=256; i>=0; i=i-5)
+	{
+		PORTD = i;
+		_delay_ms(250);
+	}
+	return 0;
+}

@@ -1,0 +1,209 @@
+
+ex1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000128  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000000d4  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000128  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000158  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000020  00000000  00000000  00000198  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000719  00000000  00000000  000001b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000678  00000000  00000000  000008d1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002b5  00000000  00000000  00000f49  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000024  00000000  00000000  00001200  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003b8  00000000  00000000  00001224  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000008a  00000000  00000000  000015dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  00001666  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 40 00 	call	0x80	; 0x80 <main>
+  78:	0c 94 68 00 	jmp	0xd0	; 0xd0 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <main>:
+#define testBit(valor, bit) (valor & (1 << bit))
+
+int main(void)
+{
+	
+	DDRD = (0 << way);
+  80:	1a b8       	out	0x0a, r1	; 10
+	DDRB = (1 << PB0) + (1 << PB1) + (1 << PB2) + (1 << PB3); //saidas para o  motor de passo
+  82:	8f e0       	ldi	r24, 0x0F	; 15
+  84:	84 b9       	out	0x04, r24	; 4
+	PORTD = 0xFF; //habilita pull up
+  86:	8f ef       	ldi	r24, 0xFF	; 255
+  88:	8b b9       	out	0x0b, r24	; 11
+					PORTB = 0b00000010;
+				}
+				else //caso a chave esteja pressionada, o estido é anti-horário
+				{
+					state = '4';
+					PORTB = 0b00001000;
+  8a:	38 e0       	ldi	r19, 0x08	; 8
+		{
+			case '1':
+				if (!(testBit(PIND, way))) //verifica se a chave está zerada, que é o sentido horário
+				{
+					state = '2';
+					PORTB = 0b00000010;
+  8c:	22 e0       	ldi	r18, 0x02	; 2
+					PORTB = 0b00000100;
+				}
+				else //caso a chave esteja pressionada, o estido é anti-horário
+				{
+					state = '1';
+					PORTB = 0b00000001;
+  8e:	81 e0       	ldi	r24, 0x01	; 1
+				}
+			case '2':
+				if (!(testBit(PIND, way))) //verifica se a chave está zerada, que é o sentido horário
+				{
+					state = '3';
+					PORTB = 0b00000100;
+  90:	94 e0       	ldi	r25, 0x04	; 4
+    while (1) 
+    {
+		switch (state)
+		{
+			case '1':
+				if (!(testBit(PIND, way))) //verifica se a chave está zerada, que é o sentido horário
+  92:	4f 99       	sbic	0x09, 7	; 9
+  94:	02 c0       	rjmp	.+4      	; 0x9a <main+0x1a>
+				{
+					state = '2';
+					PORTB = 0b00000010;
+  96:	25 b9       	out	0x05, r18	; 5
+  98:	01 c0       	rjmp	.+2      	; 0x9c <main+0x1c>
+				}
+				else //caso a chave esteja pressionada, o estido é anti-horário
+				{
+					state = '4';
+					PORTB = 0b00001000;
+  9a:	35 b9       	out	0x05, r19	; 5
+				}
+			case '2':
+				if (!(testBit(PIND, way))) //verifica se a chave está zerada, que é o sentido horário
+  9c:	4f 99       	sbic	0x09, 7	; 9
+  9e:	02 c0       	rjmp	.+4      	; 0xa4 <main+0x24>
+				{
+					state = '3';
+					PORTB = 0b00000100;
+  a0:	95 b9       	out	0x05, r25	; 5
+  a2:	01 c0       	rjmp	.+2      	; 0xa6 <main+0x26>
+				}
+				else //caso a chave esteja pressionada, o estido é anti-horário
+				{
+					state = '1';
+					PORTB = 0b00000001;
+  a4:	85 b9       	out	0x05, r24	; 5
+				}
+			case '3':
+				if (!(testBit(PIND, way))) //verifica se a chave está zerada, que é o sentido horário
+  a6:	4f 99       	sbic	0x09, 7	; 9
+  a8:	02 c0       	rjmp	.+4      	; 0xae <main+0x2e>
+				{
+					state = '4';
+					PORTB = 0b00001000;
+  aa:	35 b9       	out	0x05, r19	; 5
+  ac:	01 c0       	rjmp	.+2      	; 0xb0 <main+0x30>
+				}
+				else //caso a chave esteja pressionada, o estido é anti-horário
+				{
+					state = '2';
+					PORTB = 0b00000010;
+  ae:	25 b9       	out	0x05, r18	; 5
+				}
+			case '4':
+				if (!(testBit(PIND, way))) //verifica se a chave está zerada, que é o sentido horário
+  b0:	4f 99       	sbic	0x09, 7	; 9
+  b2:	02 c0       	rjmp	.+4      	; 0xb8 <main+0x38>
+				{
+					state = '1';
+					PORTB = 0b00000001;
+  b4:	85 b9       	out	0x05, r24	; 5
+  b6:	01 c0       	rjmp	.+2      	; 0xba <main+0x3a>
+				}
+				else //caso a chave esteja pressionada, o estido é anti-horário
+				{
+					state = '3';
+					PORTB = 0b00000100;
+  b8:	95 b9       	out	0x05, r25	; 5
+				}
+			default:
+				state = '1';
+				PORTB = 0b00000001;
+  ba:	85 b9       	out	0x05, r24	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  bc:	4f ef       	ldi	r20, 0xFF	; 255
+  be:	59 e6       	ldi	r21, 0x69	; 105
+  c0:	68 e1       	ldi	r22, 0x18	; 24
+  c2:	41 50       	subi	r20, 0x01	; 1
+  c4:	50 40       	sbci	r21, 0x00	; 0
+  c6:	60 40       	sbci	r22, 0x00	; 0
+  c8:	e1 f7       	brne	.-8      	; 0xc2 <main+0x42>
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <main+0x4c>
+  cc:	00 00       	nop
+  ce:	e1 cf       	rjmp	.-62     	; 0x92 <main+0x12>
+
+000000d0 <_exit>:
+  d0:	f8 94       	cli
+
+000000d2 <__stop_program>:
+  d2:	ff cf       	rjmp	.-2      	; 0xd2 <__stop_program>

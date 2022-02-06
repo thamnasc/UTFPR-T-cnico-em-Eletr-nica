@@ -1,0 +1,6 @@
+a = float(input("Primeira parcial: "))
+b = float(input("Segunda parcial: "))
+c = float(input("Terceira parcial: "))
+d = float(input("Quarta parcial: "))
+print("A media final é :", (a + b + c + d) / 4)
+input()
