@@ -1,0 +1,54 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARMex, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000 E3A01000        MOV              R1, #0
+    4 00000004 E3A0200A        MOV              R2, #10
+    5 00000008 E2911001 
+                       again   ADDS             R1,R1,#1
+    6 0000000C E1520001        CMP              R2,R1
+    7 00000010 1AFFFFFC        BNE              again
+    8 00000014 EAFFFFFE 
+                       halt    B                halt
+    9 00000018                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\contador_crescente.d -o.\objects\contador_crescente.o -IC:\Keil_v5\ARM\R
+V31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine
+="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 525" --list=.\listings\con
+tador_crescente.lst contador_crescente.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARMex 00000000
+
+Symbol: ARMex
+   Definitions
+      At line 1 in file contador_crescente.s
+   Uses
+      None
+Comment: ARMex unused
+again 00000008
+
+Symbol: again
+   Definitions
+      At line 5 in file contador_crescente.s
+   Uses
+      At line 7 in file contador_crescente.s
+Comment: again used once
+halt 00000014
+
+Symbol: halt
+   Definitions
+      At line 8 in file contador_crescente.s
+   Uses
+      At line 8 in file contador_crescente.s
+Comment: halt used once
+3 symbols
+335 symbols in table

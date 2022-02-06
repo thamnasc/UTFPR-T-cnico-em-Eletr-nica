@@ -1,0 +1,2 @@
+Dependencies for Project 'contador_0a59_com_chave', Target 'Target 1': (DO NOT MODIFY !)
+F (.\contador_0a59_com_chave.s)(0x5BA5A3B4)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\contador_0a59_com_chave.lst --xref -o .\objects\contador_0a59_com_chave.o --depend .\objects\contador_0a59_com_chave.d)

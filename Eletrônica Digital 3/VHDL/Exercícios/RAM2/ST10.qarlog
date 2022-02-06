@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	C:/Users/User/Desktop/Trabs_VHDL/RAM2/ST10.qarlog
+
+Archive:	C:/Users/User/Desktop/Trabs_VHDL/RAM2/ST10.qar
+Date:		Sun Nov 18 10:31:29 2018
+Quartus Prime		15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/ST10.qpf
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/ST10.qsf
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/ST10.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/banco_regs/banco_regs.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/banco_regs/reg/reg.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/maq_estados/maq_estados.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/pcounter/pcounter.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/ram/ram.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/rom/rom.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/tb/ST10_tb.vhd
+C:/Users/User/Desktop/Trabs_VHDL/RAM2/ula/ula.vhd
+c:/altera_lite/15.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 12 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

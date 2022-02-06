@@ -1,0 +1,12 @@
+Mnemonic		Format
+0 MOV reg, #data16 	E6 RR ## ##	MOV R3, #0005h
+1 MOV reg, #data16 	E6 RR ## ##	MOV R4, #0008h
+2  ADD Rwn, Rwm		00 nm		ADD R3, R4
+3  MOV Rwn, Rwm		F0 nm		MOV R5, R3
+4 SUB reg, #data16	26 RR ## ##	SUB R5, #0001h
+5 JMPS seg, caddr	FF ss MM MM     JMPS #10, #0000
+10 MOV Rwn, Rwm		F0 nm		MOV R3, R5
+11 JMPS seg, caddr	FF ss MM MM     JMPS #2, #0000  
+
+mudanças: não tem sinal extendido, que é feito por MUC(mcu?)
+registrador r0 é nulo

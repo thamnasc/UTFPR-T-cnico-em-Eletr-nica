@@ -1,0 +1,2 @@
+Dependencies for Project 'sequencia_dados', Target 'Target 1': (DO NOT MODIFY !)
+F (.\sequencia_dados.s)(0x5BA65898)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\sequencia_dados.lst --xref -o .\objects\sequencia_dados.o --depend .\objects\sequencia_dados.d)

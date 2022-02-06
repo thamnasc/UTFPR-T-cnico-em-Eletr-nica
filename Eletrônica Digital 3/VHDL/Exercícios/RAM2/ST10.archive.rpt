@@ -1,0 +1,87 @@
+Archive Project report for ST10
+Sun Nov 18 10:31:29 2018
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Sun Nov 18 10:31:29 2018 ;
+; Revision Name          ; ST10                                  ;
+; Top-level Entity Name  ; ST10                                  ;
+; Family                 ; Cyclone IV E                          ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Source control' contains:
+    Info: Project source and settings files
+    Info: Automatically detected source files
+Info: Archive will store files relative to the closest common parent directory
+Info (13213): Using common directory C:/Users/User/Desktop/Trabs_VHDL/RAM2/
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive 'C:/Users/User/Desktop/Trabs_VHDL/RAM2/ST10.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'ST10.archive.rpt'
+Info (23030): Evaluation of Tcl script c:/altera_lite/15.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 644 megabytes
+    Info: Processing ended: Sun Nov 18 10:31:29 2018
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++-----------------------------------------------------------+
+; Files Archived                                            ;
++-----------------------------------------------------------+
+; File Name                                                 ;
++-----------------------------------------------------------+
+; banco_regs/banco_regs.vhd                                 ;
+; banco_regs/reg/reg.vhd                                    ;
+; c:/altera_lite/15.1/quartus/bin64/assignment_defaults.qdf ;
+; maq_estados/maq_estados.vhd                               ;
+; pcounter/pcounter.vhd                                     ;
+; ram/ram.vhd                                               ;
+; rom/rom.vhd                                               ;
+; ST10.qpf                                                  ;
+; ST10.qsf                                                  ;
+; ST10.vhd                                                  ;
+; tb/ST10_tb.vhd                                            ;
+; ula/ula.vhd                                               ;
++-----------------------------------------------------------+
+
+

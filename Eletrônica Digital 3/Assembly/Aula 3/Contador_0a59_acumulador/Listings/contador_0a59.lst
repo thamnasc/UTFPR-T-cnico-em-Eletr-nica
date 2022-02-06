@@ -1,0 +1,53 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARM, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000 E3A00000 
+                       start   MOV              R0,#0
+    4 00000004 E2800001 
+                       again   ADD              R0,#1
+    5 00000008 E350003B        CMP              R0,#59
+    6 0000000C 1AFFFFFC        BNE              again
+    7 00000010 0AFFFFFA        BEQ              start
+    8 00000014                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\contador_0a59.d -o.\objects\contador_0a59.o -IC:\Keil_v5\ARM\RV31\INC -I
+C:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\Philips --predefine="__EVAL S
+ETA 1" --predefine="__UVISION_VERSION SETA 518" --list=.\listings\contador_0a59
+.lst contador_0a59.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARM 00000000
+
+Symbol: ARM
+   Definitions
+      At line 1 in file contador_0a59.s
+   Uses
+      None
+Comment: ARM unused
+again 00000004
+
+Symbol: again
+   Definitions
+      At line 4 in file contador_0a59.s
+   Uses
+      At line 6 in file contador_0a59.s
+Comment: again used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 3 in file contador_0a59.s
+   Uses
+      At line 7 in file contador_0a59.s
+Comment: start used once
+3 symbols
+335 symbols in table

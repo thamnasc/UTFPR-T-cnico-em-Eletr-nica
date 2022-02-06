@@ -1,0 +1,137 @@
+--Thalita Maria do Nascimento - Equipe 7
+--Projeto uProcessador6 Salto Condicional
+--Entrega 05/11/2018 (Entregue 17/11)
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity calc is
+	port ( CLK,RST					    			  : in std_logic;
+			 C,Z							 			  : out std_logic;
+			 estado					    			  : out unsigned (1 downto 0);
+			 PC						    			  : out unsigned (7 downto 0);
+			 RD1,RD2,ALUResult	    			  : out unsigned (15 downto 0);
+			 Instr					    	 		  : out unsigned (31 downto 0)	 		 
+		  );
+end entity;
+
+architecture calc_a of calc is
+	component ula
+		port ( ALUSrc	         				  : in std_logic;
+				 C,Z								     : out std_logic;
+				 ALUControl 						  : in unsigned (7 downto 0);
+				 SrcA,RD2,SignImm		           : in unsigned (15 downto 0);
+				 ALUResult							  : out unsigned (15 downto 0)								  
+			  );
+	end component;
+	
+	component banco_regs
+		port ( CLK,RST,WE3						  : in std_logic;
+				 A1,A2,A3                       : in unsigned (3 downto 0);
+				 WD3                            : in unsigned (15 downto 0);
+				 RD1,RD2                        : out unsigned (15 downto 0)
+		     );
+	end component;
+		
+	component pcounter
+		port ( CLK,RST,WE					 		  : in std_logic;
+				 PCSrc						 		  : in unsigned (1 downto 0);
+				 JumpAbs,JumpRel			 		  : in unsigned (7 downto 0);
+				 PC_out						 		  : out unsigned (7 downto 0)
+			  );
+	end component;
+		
+	component rom
+		port ( CLK,RE								  : in std_logic;
+			    A     								  : in unsigned (7 downto 0);
+				 RD									  : out unsigned (31 downto 0)
+			  );
+	end component; 
+	
+	component maq_estados 
+		port( CLK,RST,FlagIn						  : in std_logic;
+				RE,WE,RegWrite,ALUSrc			  : out std_logic;
+				estado,PCSrc						  : out unsigned (1 downto 0);
+				Op										  : in unsigned (7 downto 0)
+			 );
+	end component;
+	
+	signal ALUSrc,WE,RE,RegWrite,FlagIn		  : std_logic;
+	signal PCSrc					   			  : unsigned (1 downto 0);
+	signal A1,A2,WriteReg						  : unsigned (3 downto 0);
+	signal Op,ALUControl,JumpRel,JumpAbs,PC_s: unsigned (7 downto 0);
+	signal RD1_s,RD2_s,SignImm,ALUResult_s	  : unsigned (15 downto 0);
+	signal Instr_s									  : unsigned (31 downto 0);
+	
+begin
+
+	ula_c												  : ula port map ( SrcA=>RD1_s,RD2=>RD2_s,SignImm=>SignImm,
+																		       ALUResult=>ALUResult_s,ALUControl=>
+																				 ALUControl,ALUSrc=>ALUSrc,C=>FlagIn,Z=>Z);
+								 
+	banco_c 											  : banco_regs port map ( CLK=>CLK,RST=>RST,WE3=>RegWrite,
+																						  A1=>A1,A2=>A2,A3=>WriteReg,WD3=>
+																						  ALUResult_s,RD1=>RD1_s,RD2=>RD2_s);
+	
+	pc_c												  : pcounter port map ( CLK=>CLK,RST=>RST,WE=>WE,PCSrc=>
+																					   PCSrc,PC_out=>PC_s,JumpAbs=>JumpAbs,
+																						JumpRel=>JumpRel);
+	
+	rom_c												  : rom port map ( CLK=>CLK,RE=>RE,A=>PC_s,RD=>Instr_s);														  
+																  
+	uni_control_c									  : maq_estados port map ( CLK=>CLK,RST=>RST,estado=>
+																						   estado, FlagIn=>FlagIn,PCSrc=>
+																							PCSrc,Op=>Op,RE=>RE,WE=>WE,
+																							RegWrite=>RegWrite,ALUSrc=>
+																							ALUSrc);
+																							
+	--sinal de flag de carry da ULA a ser visualizado no testbench
+	
+	C <= FlagIn;
+	
+	--sinal de saida da ULA para ser visualizado no testbench
+	
+	ALUResult	<= ALUResult_S;
+	
+	--sinal de saida do PC para ser visualizado no testbench
+	
+	PC 		  <= PC_s;
+	
+	--sinal de saida de Instr para ser visualizado no testbench
+	
+	Instr      <= Instr_s;
+	
+	--seleção de registradores do banco para leituras e escrita, respectivamente
+	
+	A1         <= Instr_s (23 downto 20);
+	
+	A2         <= Instr_s (19 downto 16);
+	
+	WriteReg   <= A1;
+	
+	--sinais da saída do banco de registradores para serem visualizados no testbench
+	
+	RD1		  <= RD1_s;
+	
+	RD2		  <= RD2_s;
+	
+	--valor imediato para ULA
+	
+	SignImm    <= Instr_s (15 downto 0);
+	
+	--valor para salto relativo
+	
+	JumpRel    <= Instr_s (23 downto 16);
+	
+	--valor para salto absoluto
+	
+	JumpAbs	  <= Instr_s (23 downto 16);
+	
+	--operação a ser executada pela ULA e saltos pelo PC
+ 
+	Op         <= Instr_s (31 downto 24);
+	
+	ALUControl <= Op;
+	
+end architecture;

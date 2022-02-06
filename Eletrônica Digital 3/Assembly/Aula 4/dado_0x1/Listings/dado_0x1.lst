@@ -1,0 +1,124 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARM, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000 E3A00000        MOV              R0,#0
+    4 00000004 E59F1074        LDR              R1, =regiao_de_busca
+    5 00000008 E3A02001        LDR              R2, =0x00000001
+    6 0000000C E59F3070        LDR              R3, =regiao_fim
+    7 00000010 E5918000 
+                       compara LDR              R8, [R1]    ; mostra no r8 o en
+                                                            dereco de r1
+    8 00000014 E2811004        ADD              R1, #4      ;se nao, procura po
+                                                            r mais 4 bits
+    9 00000018 E1580002        CMP              R8, R2      ;compara regiao de 
+                                                            busca com 0x0000000
+                                                            1
+   10 0000001C 0A000002        BEQ              conta       ;se for igual, cont
+                                                            a
+   11 00000020 E1510003        CMP              R1,R3       ;compara se nao che
+                                                            gou a regiao_fim
+   12 00000024 1AFFFFF9        BNE              compara     ;se nao, compara
+   13 00000028 0A000013        BEQ              fim         ;se sim, acaba o co
+                                                            digo
+   14 0000002C E2800001 
+                       conta   ADD              R0, #1      ; registra o numero
+                                                             encontrado igual a
+                                                             0x00000001
+   15 00000030 E1510003        CMP              R1, R3      ; compara se nao ch
+                                                            egou a regiao_fim
+   16 00000034 1AFFFFF5        BNE              compara
+   17 00000038 0A00000F        BEQ              fim         ;se sim, acaba o co
+                                                            digo
+   18 0000003C         regiao_de_busca                      ; dados alocados na
+                                                             memoria
+   19 0000003C 00000001 
+              00000002 
+              00000003 
+              12345678 
+              00002345 
+              00000001 
+              00000001 
+              00000FFF         DCD              1,2,3, 0x12345678, 0x2345, 0x1,
+ 1, 0xfff
+   20 0000005C 00000002 
+              0000000F         DCD              2, 0xf
+   21 00000064 00000000        DCD              0
+   22 00000068 00000002 
+              00000004 
+              00000004 
+              00000004 
+              00000004         DCD              2, 4,4,4,4
+   23 0000007C         regiao_fim                           ;fim do codigo
+   24 0000007C EAFFFFFE 
+                       fim     B                fim
+   25 00000080                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\dado_0x1.d -o.\objects\dado_0x1.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5
+\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\Philips --predefine="__EVAL SETA 1" --p
+redefine="__UVISION_VERSION SETA 518" --list=.\listings\dado_0x1.lst dado_0x1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARM 00000000
+
+Symbol: ARM
+   Definitions
+      At line 1 in file dado_0x1.s
+   Uses
+      None
+Comment: ARM unused
+compara 00000010
+
+Symbol: compara
+   Definitions
+      At line 7 in file dado_0x1.s
+   Uses
+      At line 12 in file dado_0x1.s
+      At line 16 in file dado_0x1.s
+
+conta 0000002C
+
+Symbol: conta
+   Definitions
+      At line 14 in file dado_0x1.s
+   Uses
+      At line 10 in file dado_0x1.s
+Comment: conta used once
+fim 0000007C
+
+Symbol: fim
+   Definitions
+      At line 24 in file dado_0x1.s
+   Uses
+      At line 13 in file dado_0x1.s
+      At line 17 in file dado_0x1.s
+      At line 24 in file dado_0x1.s
+
+regiao_de_busca 0000003C
+
+Symbol: regiao_de_busca
+   Definitions
+      At line 18 in file dado_0x1.s
+   Uses
+      At line 4 in file dado_0x1.s
+Comment: regiao_de_busca used once
+regiao_fim 0000007C
+
+Symbol: regiao_fim
+   Definitions
+      At line 23 in file dado_0x1.s
+   Uses
+      At line 6 in file dado_0x1.s
+Comment: regiao_fim used once
+6 symbols
+340 symbols in table

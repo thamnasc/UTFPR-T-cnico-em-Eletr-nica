@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ST10.qarlog
+
+Archive:	C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ST10.qar
+Date:		Mon Nov 26 23:06:08 2018
+Quartus Prime		15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ST10.qpf
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ST10.qsf
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ST10.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/banco_regs/banco_regs.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/banco_regs/reg/reg.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/pcounter/pcounter.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ram/ram.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/rom/rom.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/tb/ST10_tb.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/ula/ula.vhd
+C:/Users/User/Desktop/Trabs_VHDL/Crivo de Eratóstenes/uni_control/uni_control.vhd
+c:/altera_lite/15.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 12 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

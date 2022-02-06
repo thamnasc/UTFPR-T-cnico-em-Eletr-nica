@@ -1,0 +1,2 @@
+Dependencies for Project 'contador_0a59_setclr', Target 'Target 1': (DO NOT MODIFY !)
+F (.\contador_0a59_setclr.s)(0x5BA584BC)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 525"--list .\listings\contador_0a59_setclr.lst --xref -o .\objects\contador_0a59_setclr.o --depend .\objects\contador_0a59_setclr.d)

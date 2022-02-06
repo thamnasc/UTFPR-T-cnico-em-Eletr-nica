@@ -1,0 +1,53 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARM, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000 E3A03000        MOV              R3, #0
+    4 00000004 E353000A 
+                       VOLTA   CMP              R3, #10
+    5 00000008 E2833001        ADD              R3, #1
+    6 0000000C 1AFFFFFC        BNE              VOLTA
+    7 00000010 EAFFFFFE 
+                       FIM     B                FIM
+    8 00000014                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\contador_crescente_prof2.d -o.\objects\contador_crescente_prof2.o -IC:\K
+eil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips
+ --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 525" --list=.\
+listings\contador_crescente_prof2.lst contador_crescente_prof2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARM 00000000
+
+Symbol: ARM
+   Definitions
+      At line 1 in file contador_crescente_prof2.s
+   Uses
+      None
+Comment: ARM unused
+FIM 00000010
+
+Symbol: FIM
+   Definitions
+      At line 7 in file contador_crescente_prof2.s
+   Uses
+      At line 7 in file contador_crescente_prof2.s
+Comment: FIM used once
+VOLTA 00000004
+
+Symbol: VOLTA
+   Definitions
+      At line 4 in file contador_crescente_prof2.s
+   Uses
+      At line 6 in file contador_crescente_prof2.s
+Comment: VOLTA used once
+3 symbols
+335 symbols in table

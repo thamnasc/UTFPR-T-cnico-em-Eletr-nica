@@ -1,0 +1,1 @@
+.\objects\dado_0x1.o: dado_0x1.s

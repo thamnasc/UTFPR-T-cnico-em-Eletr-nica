@@ -1,0 +1,53 @@
+--Equipe 7 - Thalita Maria do Nascimento
+--Unidade de Controle Rudimentar
+-- Entrega 01/10/2018 (Entregue dia 02/10/2018)
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity uni_control is
+	port ( clk,rst: in std_logic;
+			 registro,mux_data_in: out unsigned (6 downto 0);
+			 control: out std_logic;
+			 instr_s: out unsigned (11 downto 0)
+		  );
+end entity;
+
+architecture a_uni_control of uni_control is
+	component pc
+		port ( clk,rst,wr_en: in std_logic;
+				 data_out,mux_data_in_s: out unsigned (6 downto 0);
+				 instr: in unsigned (11 downto 0)
+		     );
+	end component;
+	
+	component rom
+		port ( clk,read_en: in std_logic;
+				 endereco: in unsigned (6 downto 0);
+				 dado: out unsigned (11 downto 0)
+			  );
+	end component;
+	
+	component maquina_de_estados
+		port ( clk,rst: in std_logic;
+				 status: out std_logic;
+				 wr_en,read_en: out std_logic
+			  );
+	end component;
+	
+signal jump_en,read_en: std_logic;
+signal data_out: unsigned (6 downto 0);
+signal instr: unsigned (11 downto 0);
+
+begin
+pc_uni: pc port map (clk=>clk,rst=>rst,wr_en=>jump_en,data_out=>data_out,
+							mux_data_in_s=>mux_data_in,instr=>instr);
+rom_uni: rom port map (clk=>clk,read_en=>read_en,endereco=>data_out,dado=>instr);
+control_uni: maquina_de_estados port map (clk=>clk,rst=>rst,status=>control,wr_en=>jump_en,read_en=>read_en);
+	
+instr_s <= instr;
+
+registro <= data_out;
+
+end architecture;

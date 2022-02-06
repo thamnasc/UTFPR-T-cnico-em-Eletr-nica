@@ -1,0 +1,2 @@
+Dependencies for Project 'contador_0a6', Target 'Target 1': (DO NOT MODIFY !)
+F (.\contador_0a6.s)(0x5B814DC2)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\contador_0a6.lst --xref -o .\objects\contador_0a6.o --depend .\objects\contador_0a6.d)
