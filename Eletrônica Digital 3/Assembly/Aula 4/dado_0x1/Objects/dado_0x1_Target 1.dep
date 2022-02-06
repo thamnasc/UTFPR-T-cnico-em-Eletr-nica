@@ -1,2 +1,0 @@
-Dependencies for Project 'dado_0x1', Target 'Target 1': (DO NOT MODIFY !)
-F (.\dado_0x1.s)(0x5BA64CBE)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\dado_0x1.lst --xref -o .\objects\dado_0x1.o --depend .\objects\dado_0x1.d)

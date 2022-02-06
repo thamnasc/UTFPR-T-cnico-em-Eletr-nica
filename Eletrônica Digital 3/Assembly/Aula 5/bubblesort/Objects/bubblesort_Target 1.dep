@@ -1,2 +1,0 @@
-Dependencies for Project 'bubblesort', Target 'Target 1': (DO NOT MODIFY !)
-F (.\bubblesort.s)(0x5C0BC2A2)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\bubblesort.lst --xref -o .\objects\bubblesort.o --depend .\objects\bubblesort.d)

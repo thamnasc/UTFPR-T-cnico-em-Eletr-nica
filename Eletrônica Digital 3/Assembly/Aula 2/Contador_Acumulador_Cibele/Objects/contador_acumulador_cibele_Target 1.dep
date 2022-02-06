@@ -1,2 +1,0 @@
-Dependencies for Project 'contador_acumulador_cibele', Target 'Target 1': (DO NOT MODIFY !)
-F (.\contador_acumulador_cibele.s)(0x5B809B3E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 525"--list .\listings\contador_acumulador_cibele.lst --xref -o .\objects\contador_acumulador_cibele.o --depend .\objects\contador_acumulador_cibele.d)

@@ -1,2 +1,0 @@
-Dependencies for Project 'dado_feio_fofo', Target 'Target 1': (DO NOT MODIFY !)
-F (.\dado_feio_fofo.s)(0x5BA64A1C)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\dado_feio_fofo.lst --xref -o .\objects\dado_feio_fofo.o --depend .\objects\dado_feio_fofo.d)

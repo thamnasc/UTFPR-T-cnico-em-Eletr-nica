@@ -1,2 +1,0 @@
-Dependencies for Project 'rom_ram', Target 'Target 1': (DO NOT MODIFY !)
-F (.\rom_ram.s)(0x5BAF8D4E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 518"--list .\listings\rom_ram.lst --xref -o .\objects\rom_ram.o --depend .\objects\rom_ram.d)
